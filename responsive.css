@@ -1,0 +1,175 @@
+@media screen and (max-width:1020px) {
+
+
+	#loading {display: none;}
+
+	/*-----------------------------*/
+	/*---------HEADER STUFF-------*/
+	/*---------------------------*/
+	#header {
+		padding: 15px; 
+		position: relative; 
+		text-align: center;
+		display: block;
+	}
+	/*------LOGO-------*/
+	a#logo {
+		float: none; 
+		padding: 0 0 10px; 
+		display: block;
+	}
+	a#logo img {
+		max-width: 100%;
+		width: auto; 
+		height: auto;
+	}
+	/*------DESCRIPTION-------*/
+	#description {
+		line-height: 1em !important; 
+		float: none;
+		display: block; 
+		padding: 0 0 10px;
+	}	
+	/*------NAVIGATION-------*/
+	#navigation {float: none;}
+	#navigation #dropmenu {display: none;}
+	#selectMenu {display: inline-block;}
+	
+	/*--------------------------*/
+	/*---------MAP STUFF-------*/
+	/*------------------------*/
+	#gMap.activeMap {
+		position: relative !important; 
+		height: 700px !important;
+	}
+	#gMap > div:nth-child(2) {
+		height: 100% !important;
+    	left: 0 !important;
+    	top: 0 !important;
+    	width: 100% !important;
+    	outline: none !important;
+	}
+	
+	#target {display: none !important;}
+	
+	/*------------------------------*/
+	/*---------CONTENT STUFF-------*/
+	/*----------------------------*/
+	#content {padding: 0px !important;}
+	
+	#main,
+	#main.blog {
+		padding: 15px;
+		width: auto;	
+		height: auto !important;
+		display: block !important;
+	}
+	
+	body.page #main {width: auto;}
+	
+	#closeBox,
+	#handle {display: none;}
+	
+	#commentsection {width: auto;}
+	
+	textarea {width: 90%;}
+	
+	/*-----------------------------*/
+	/*---------FOOTER STUFF-------*/
+	/*---------------------------*/
+	#footer {
+		position: relative; 
+		height: auto; 
+		line-height: 1.2em;
+		text-align: center;
+		padding-bottom: 15px;
+		background: none;
+	}
+	
+	/*------MARKER STUFF-------*/
+	.markerNav {
+		float: none; 
+		vertical-align: top;
+		width: 10%;
+		border: none;
+		height: 127px;
+		line-height: 127px;
+		background: none;
+	}
+	.markerNav i {line-height: 127px;}
+	.markerNav:before {display: none;}
+	
+	#markers {
+		width: 80% !important; 
+		float: none;
+		height: auto;
+		line-height: 1.2em;
+	}
+	.marker {
+		width: auto; 
+		height: auto;
+	}
+	.markerInfo {
+		bottom: 0;
+    	left: 0;
+    	padding:10px;
+    	position: relative;
+    	text-align: left;
+    	width: auto !important;
+    	border: none;
+    	box-shadow: none;
+    	background: none;
+   	}
+   	.markerInfo:before {display: none;}
+   	
+	.activeInfo {
+		display: block !important;
+	}
+	
+	.markerInfo img {height: auto; max-width: 100%;}
+
+	#socialStuff {height: 30px; padding: 0;}
+	#socialStuff,
+	#copyright {
+		float: none !important;
+		vertical-align: top;
+		display: block;
+	}
+	
+	a[rel~="prev"], 
+	a[rel~="next"],
+	#mapTypeContainer {
+		display: none;
+	}
+	
+	.pageContent {display: none;}
+	
+	/*------------------------------*/
+	/*---------SIDEBAR STUFF-------*/
+	/*----------------------------*/
+	.widgetsToggle {display: none !important;}
+	#sidebar {
+		display: block !important; 
+		position: relative; 
+		bottom: 0; 
+		top: 0 !important;
+		width: auto;
+		background: none;
+	}
+	#sidebar ul li.widget {
+		margin: 0 auto 30px; 
+		float: none;
+	}
+	
+}/*/mediaquery*/
+
+@media screen and (max-width:1020px) and (max-height: 1200px) {#gMap.activeMap {height: 600px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 1100px) {#gMap.activeMap {height: 550px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 1000px) {#gMap.activeMap {height: 500px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 900px) {#gMap.activeMap {height: 450px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 800px) {#gMap.activeMap {height: 400px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 700px) {#gMap.activeMap {height: 350px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 600px) {#gMap.activeMap {height: 300px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 500px) {#gMap.activeMap {height: 250px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 400px) {#gMap.activeMap {height: 200px !important;}}/*/mediaquery*/
+@media screen and (max-width:1020px) and (max-height: 300px) {#gMap.activeMap {height: 150px !important;}}/*/mediaquery*/

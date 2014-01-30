@@ -1,0 +1,220 @@
+/* -----BODY STUFF----- */
+html {background-color: #eee;}
+body {color:#555;}
+
+/* -----A TAG STUFF----- */
+a:hover {color: #000;}
+
+/* -----H TAG STUFF----- */
+h1,h2,h3, h4, h5, h6 {color: #000;}
+
+#loading {background-color: #fafafa;}
+
+#main {
+	border-color:#fff;  
+	background: #fff;
+	background: rgba(255,255,255,.95);
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+
+#handle {
+	border-right: none;
+	background: #f3f3f3 url(images/draggable.png) no-repeat center 30px;
+}
+#handle:before {display:none;}
+
+/*---------HEADER STUFF-----------*/
+#header {
+	background: #fff;
+	border:none;
+	box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+#description {color: #aaa;}
+
+/*-------MAIN NAVIGATION STUFF--------*/
+#dropmenu > li.menu-item-has-children:hover {background-color: #fafafa;}
+#dropmenu > li > a {color: #aaa;}
+#dropmenu > li > a:hover {color: #000;}
+#dropmenu li ul {
+	background: #fafafa; 
+	border-color:#fff;
+}
+#dropmenu li ul:before {display: none;}
+
+#dropmenu li ul li a:hover {background-color: #fff;}
+#dropmenu li.current-menu-item > a,
+#dropmenu li.current-menu-ancestor > a {color: #000;}
+
+/*--------FOOTER STUFF--------*/
+#footer {
+	border:none;
+	background: #fff;
+}
+#footer:before {display: none;}
+
+
+/*------FOOTER BUTTONS-------*/
+.widgetsToggle,
+a[rel~="prev"],
+a[rel~="next"],
+#mapTypeContainer,
+.markerNav,
+.pageContent {
+	color: #000;
+	border-color:#eee; 
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f3f3f3));
+	background: -moz-linear-gradient(top,  #ffffff,  #f3f3f3);
+}
+
+.widgetsToggle:before,
+a[rel~="prev"]:before,
+a[rel~="next"]:before,
+#mapTypeContainer:before,
+.markerNav:before,
+.pageContent:before {display: none;}
+
+.widgetsToggle:hover,
+a[rel~="prev"]:hover,
+a[rel~="next"]:hover,
+#mapTypeContainer:hover,
+.markerNav:hover,
+.pageContent:hover {background: #eee;}
+
+#widgetsClose {background: #eee;}
+
+
+/*---MARKER TITLE POPUP---*/
+.markerTitle {
+	color:#333; 
+	border: none;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.markerTitle:before {display: none;}
+.markerTitle:after {border-color:#fff transparent;}
+
+/*---MAP IMAGE POP-UP CONTAINER---*/
+#mapStyleContainer {
+	border: none;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+#mapStyleContainer:before {display: none;}
+#mapStyleContainer:after {border-color:#fff transparent;}
+
+
+/*---MAP TYPE BUTTON---*/
+#mapType {background: url(images/dial.png) no-repeat 0 -24px;}
+
+
+/*---CUSTOM INFOWINDOW---*/
+.markerInfo {
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f3f3f3));
+	background: -moz-linear-gradient(top,  #ffffff,  #f3f3f3); 
+	color: #333; 
+	border-color:#fff;
+	box-shadow: 0px 0px 5px rgba(0,0,0,.15);
+}
+.markerInfo:before {display: none;}
+.markerInfo img {border-color:#fff;}
+.markerInfo a:hover img {border-color: #000;}
+
+/*---FOOTER COPYRIGHT---*/
+#footer #copyright a {color: #000; border-bottom-color:#000;}
+#footer #copyright a:hover {border-bottom-color:#000;}
+
+/*---FOOTER SOCIAL ICONS---*/
+#rssIcon {color: #FF6600;}
+#skypeIcon {color: #00AFF0;}
+#flickrIcon {color: #FF1981;}
+#instagramIcon {color: #18587E;}
+#linkedinIcon {color: #0077B5;}
+#youtubeIcon {color: #E73630;}
+#vimeoIcon {color: #20B9EB;}
+#pinterestIcon {color: #CB1B23;}
+#gplusIcon {color: #DD4B39;}
+#facebookIcon {color: #3B5998;}
+#twitterIcon {color: #00ACEE;}
+
+.socialicon:hover {color: #000 !important;}
+
+/* -----SEARCH STUFF----- */
+#searchBtn {background: url(images/search.png) no-repeat center top;}
+#searchBtn:hover {background: url(images/search.png) no-repeat right top;}
+
+#searchform {background: #eee;}
+
+#header #searchform {
+	box-shadow: 0 1px 1px rgba(0,0,0,.25);
+	background: #fff;
+}
+
+/* -----POST AND ENTRY STUFF----- */
+ul.galleryBox li {border-color:#fff;}
+ul.galleryBox li:hover {border-color: #fff;}
+
+#related ul li {border-color:#fff;}
+#related ul li:hover {border-color: #fff;}
+
+
+/*-------BLOG POST STUFF-------*/
+.blogThumb img {outline: 1px solid #fff;}
+.blogThumb:hover img {outline: 1px solid #fff;}
+.blogMeta {border-bottom-color:#555;}
+
+/* ----TOOL TIP STYLE----- */
+.itooltip {
+	color: #333; 
+	background: #fff; 
+	border:none;
+}
+
+/*-----SIDEBAR STUFF----*/
+#sidebar {
+	border-color:#fff;
+	background: #fff;
+	background: rgba(255,255,255,.9);
+}
+
+/* -----COMMENT STUFF----- */
+.toggleButton {
+	color: #333; 
+	border: 1px solid #fff;
+	background: #eee;
+}
+.toggleButton:before {display: none;}
+.toggleButton:hover {color: #fff;}
+
+.commentmetadata {color:#333;}
+
+/*---FORM STUFF---*/
+select,
+input[type="email"],
+input[type="text"],
+input[type="password"],
+textarea {
+	background: #e8e8e8; 
+	border: none; 
+	color: #333;
+}
+
+#sidebar #searchform {background: #fff;}
+
+#commentform input[type="submit"], 
+input[type="submit"] {color: #fff;}
+
+/*-----SUBMISSION FORM STUFF------*/
+#primaryPostForm .formExample {color: #aaa;}
+
+/*----TAG CLOUD WIDGET STUFF-------*/
+.widget_tag_cloud a {
+	color: #fff;
+	border-color:#fff;
+}
+
+/*---CONTACT FORM 7 PLUGIN STUFF---*/
+span.wpcf7-not-valid-tip {color: #333 !important}
+img.ajax-loader {background-color: #fff;}
