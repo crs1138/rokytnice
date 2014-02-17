@@ -147,43 +147,85 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 	<?php if($toggle){ ?>jQuery("#footer").append('<div id="mapTypeContainer"><div id="mapStyleContainer" class="gradientBorder"><div id="mapStyle"></div></div><div id="mapType" class="roadmap"></div></div>');<?php } ?>
 
 	jQuery("#gMap").addClass('activeMap').gmap3({
-    	action: 'addMarker',
-    	lat:<?php echo $latitude; ?>,
-    	lng:<?php echo $longitude; ?>,
-    	marker:{
-      		options:{
-        		icon: new google.maps.MarkerImage('<?php echo $pin;?>')
-      		}
-    	},
     	map:{
-     	 center: true,
-     	 zoom: <?php echo $zoom;?>
+	     	center: true,
+			options: {
+				center: [<?php echo $latitude; ?>,<?php echo $longitude; ?>],
+				zoom: <?php echo $zoom;?>,
+				scrollwheel:true,
+				disableDefaultUI:false,
+				disableDoubleClickZoom:false,
+				draggable:true,
+				mapTypeControl:true,
+				mapTypeId:'satellite',
+				mapTypeControlOptions: {
+					position: google.maps.ControlPosition.LEFT_TOP,
+					style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+				},
+				panControl:false,
+				scaleControl:false,
+				streetViewControl:true,
+				streetViewControlOptions: {
+					position: google.maps.ControlPosition.RIGHT_CENTER
+				},
+				zoomControl:true,
+				zoomControlOptions: {
+					style: google.maps.ZoomControlStyle.DEFAULT,
+					position: google.maps.ControlPosition.RIGHT_CENTER
+				}
+			}
+   		},
+		marker:{
+			values: [
+				{latLng:[<?php echo $latitude; ?>,<?php echo $longitude; ?>], data: "Banik Pyco!"}
+			],
+			options:{
+		   		icon: new google.maps.MarkerImage('<?php echo $pin;?>')
+		 	}
+		},
+   		kmllayer:{
+   			options:{
+   				url: "http://planxdesign.eu/gmap/testing-circuit.kml",
+   				opts:{
+   					preserveViewport: true
+   				}
+   			}
    		}
-	},{
-		action: 'setOptions', args:[{
-			scrollwheel:true,
-			disableDefaultUI:false,
-			disableDoubleClickZoom:false,
-			draggable:true,
-			mapTypeControl:true,
-			mapTypeId:'satellite',
-			mapTypeControlOptions: {
-        		position: google.maps.ControlPosition.LEFT_TOP,
-        		style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-    		},
-			panControl:false,
-			scaleControl:false,
-			streetViewControl:true,
-			streetViewControlOptions: {
-        		position: google.maps.ControlPosition.RIGHT_CENTER
-    		},
-			zoomControl:true,
-			zoomControlOptions: {
-        		style: google.maps.ZoomControlStyle.DEFAULT,
-        		position: google.maps.ControlPosition.RIGHT_CENTER
-    		}
-		}]
 	});
+
+		// action: 'addMarker',
+		// lat:<?php echo $latitude; ?>,
+		// lng:<?php echo $longitude; ?>,
+		// marker:{
+		//  		options:{
+		//    		icon: new google.maps.MarkerImage('<?php echo $pin;?>')
+		//  		}
+		// },
+	// {
+	// 	action: 'setOptions', args:[{
+	// 		scrollwheel:true,
+	// 		disableDefaultUI:false,
+	// 		disableDoubleClickZoom:false,
+	// 		draggable:true,
+	// 		mapTypeControl:true,
+	// 		mapTypeId:'satellite',
+	// 		mapTypeControlOptions: {
+ //        		position: google.maps.ControlPosition.LEFT_TOP,
+ //        		style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+ //    		},
+	// 		panControl:false,
+	// 		scaleControl:false,
+	// 		streetViewControl:true,
+	// 		streetViewControlOptions: {
+ //        		position: google.maps.ControlPosition.RIGHT_CENTER
+ //    		},
+	// 		zoomControl:true,
+	// 		zoomControlOptions: {
+ //        		style: google.maps.ZoomControlStyle.DEFAULT,
+ //        		position: google.maps.ControlPosition.RIGHT_CENTER
+ //    		}
+	// 	}]
+	// });
 });
 </script>
 <?php } else { ?>
