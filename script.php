@@ -181,34 +181,36 @@ jQuery.noConflict(); jQuery(document).ready(function(){
             console.log('context: ', context);
             window.location = context.tag;
 
-          }
-        }
-    //     events:{
-    //       mouseover: function(marker, event, context){
-    //         var $this = jQuery(this);
-    //         $this.css({cursor: 'pointer'});
-    //         jQuery('#markerTitle'+ i +'')
-    //           .stop(true,true)
-    //           .fadeIn({duration: 200, queue: false})
-    //           .animate({bottom: '32px'}, {duration: 200, queue: false});
+          } //click end
+        }, // events end
+        callback: function(marker){
+          jQuery.each( crs_markersJS, function(index, value) {
+            console.log( index + ": " + value );
+            var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2></div></div>');
+            jQuery('#markers').append(jQuerybutton);
+          });
+          // var jQuerybutton = jQuery('<div id="marker'+i+'" class="marker"><div id="markerInfo'+i+'" class="markerInfo"><a class="imgLink" href="'+link+'">'+img+'</a><h2><a href="'+link+'">'+title+'</a></h2><p>'+excerpt+'</p><a class="markerLink" href="'+link+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+i+' / <span></span></div><div class="clear"></div></div></div>');
+          // jQuerybutton.mouseover(function(){
+          //     jQuerythis.gmap3({
+          //       action:'panTo',
+          //       args:[marker.position]
+          //     });
+          //     jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
+          //  });
+          // jQuery('#markers').append(jQuerybutton);
+          // var numbers = jQuery(".markerInfo").length;
+          // jQuery(".markerTotal span, #results span").html(numbers);
+          // // if(i == 1){
+          //   // jQuery('.marker:first-child').addClass('activeMarker').mouseover();
+          // // }
+          // jQuerythis.gmap3({
+          //   action:'addOverlay',
+          //   content: '<div id="markerTitle'+i+'" class="markerTitle">'+title+'</div>',
+          //   latLng: marker.getPosition()
+          //  });
+        }   // callback end
 
-    //         jQuery('.markerInfo').removeClass('activeInfo').hide();
-    //         jQuery('#markerInfo'+ i +'').addClass('activeMarker');
-
-    //       }, //mouseover end
-    //       mouseout: function(){
-    //         var $this = jQuery(this);
-    //         $this.css({cursor: 'default'});
-    //         jQuery('#markerTitle'+ i +'')
-    //           .stop(true,true)
-    //           .fadeOut(200, function() { $this.css({bottom: "0"} ) });
-    //       }, //mouseout end
-    //       click: {
-    //         // window.location = crs_markersJS.permalink;
-
-    //       } // click end
-    //     } // events
-      } // marker
+      } // marker end
     });
 
 });
