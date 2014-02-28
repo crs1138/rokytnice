@@ -19,7 +19,7 @@ $googleKeyword = get_theme_mod('themolitor_customizer_google_key');
 $lightSkin = get_theme_mod('themolitor_customizer_theme_skin');
 
 if(!empty($favicon)) { echo '<link rel="icon" href="'.$favicon.'" type="image/x-icon" />'; }
-if(!empty($googleKeyword)) { $googleKeyEdited = str_replace(" ", "+", $googleKeyword); echo '<link href="http://fonts.googleapis.com/css?family='.$googleKeyEdited.'" rel="stylesheet" type="text/css" />'; } 
+if(!empty($googleKeyword)) { $googleKeyEdited = str_replace(" ", "+", $googleKeyword); echo '<link href="http://fonts.googleapis.com/css?family='.$googleKeyEdited.'" rel="stylesheet" type="text/css" />'; }
 ?>
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
@@ -31,28 +31,28 @@ if(!empty($googleKeyword)) { $googleKeyEdited = str_replace(" ", "+", $googleKey
 <style type="text/css">
 a {color: <?php echo $color;?>;}
 
-#commentform input[type="submit"], 
+#commentform input[type="submit"],
 input[type="submit"],
 .toggleButton:hover,
 .widget_tag_cloud a {background: <?php echo $color;?>;}
 
-<?php 
+<?php
 if(!empty($logo)){ echo "#loading {background-image: url(".$logo.");}\n";}
 if(!empty($googleKeyword)){ echo "h1,h2,h3, h4, h5, h6 {font-family: '".$googleKeyword."', sans-serif;}\n";}
 if(!empty($customcss)){echo $customcss;}
 ?>
 </style>
 
-<?php 
+<?php
 wp_enqueue_script('jquery');
-wp_head(); 
+wp_head();
 if ( is_singular() ) wp_enqueue_script('comment-reply');
 ?>
 
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/scripts/jquery-ui-1.9.2.custom.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/scripts/prettyphoto.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/scripts/spin.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.15&amp;sensor=false"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.15&sensor=false"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/scripts/gmap3.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/scripts/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/scripts/jquery.animate-colors-min.js"></script>
@@ -61,7 +61,7 @@ if ( is_singular() ) wp_enqueue_script('comment-reply');
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 <script type="text/javascript">
 jQuery.noConflict(); jQuery(document).ready(function(){
-//ACCORDION TOGGLES	
+//ACCORDION TOGGLES
 	jQuery('.toggleButton').hover(function(){
 		jQuery(this).stop(true,true).animate({paddingLeft:"10px",backgroundColor:'<?php echo $color;?>', color:'#000'},300);
 	},function(){
@@ -74,14 +74,14 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 <body <?php body_class();?>>
 
 <div id="header">
-	<?php 
+	<?php
 	if(!empty($logo)){?><a id="logo" href="<?php echo home_url()?>"><img src="<?php echo $logo;?>" alt="<?php bloginfo('name'); ?>" /></a><?php }
 	if(!empty($tagline)){?><h2 id="description"><?php bloginfo('description')?></h2><?php }
 	if (has_nav_menu( 'main' ) ) { wp_nav_menu(array('theme_location' => 'main', 'container_id' => 'navigation', 'menu_id' => 'dropmenu')); }
     get_template_part('searchform');
 	?>
 	<div class="clear"></div>
-</div><!--end header-->	
+</div><!--end header-->
 
 <div id="gMap"></div>
 

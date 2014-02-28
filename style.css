@@ -1,7 +1,7 @@
 /*
-Theme Name: Rokytnice Virtuálne
+Theme Name: Rokytnice Virtu?lne
 Description: Custom theme developed for Rokytnice nad Jizerou.
-Author: tweaked and turned by Barbora Vlasáková
+Author: tweaked and turned by Barbora Vlas?kov?
 Version: 0.75
 Tags: travelling at light speed theme
 */
@@ -46,11 +46,11 @@ h6 a:hover {text-decoration:none;}
 #loading {width: 100%; height: 100%; position: fixed; z-index: 999; background-color: #222; background-repeat: no-repeat; background-position: 35px 20px;}
 
 #main {
-	width:300px; 
-	padding: 20px 20px 20px 55px; 
-	border: 1px solid #000;  
-	z-index: 2; 
-	position: relative; 
+	width:300px;
+	padding: 20px 20px 20px 55px;
+	border: 1px solid #000;
+	z-index: 2;
+	position: relative;
 	background: #111;
 	background: rgba(0,0,0,.9);
 	box-shadow: 3px 3px 5px rgba(0,0,0,.3);
@@ -102,12 +102,12 @@ div[title="Exit Street View"] + div {background: red !important;}
 
 /*---------HEADER STUFF-----------*/
 #header {
-	position: fixed; 
+	position: fixed;
 	display: none;
-	right: 0; 
+	right: 0;
 	left: 0;
-	padding: 0 35px; 
-	z-index: 1000;	
+	padding: 0 35px;
+	z-index: 1000;
 	background: #171717;
 	background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#171717));
 	background: -moz-linear-gradient(top,  #282828,  #171717);
@@ -118,10 +118,10 @@ a#logo {display: inline-block; position: relative; z-index: 2; float: none; padd
 a#logo img {vertical-align: middle;}
 
 #description {
-	font-size: 12px; 
-	font-family: sans-serif; 
+	font-size: 12px;
+	font-family: sans-serif;
 	float: none;
-	color: #fff; 
+	color: #fff;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -135,10 +135,10 @@ a#logo img {vertical-align: middle;}
 #dropmenu {list-style:none; position:relative; z-index: 400;}
 #dropmenu > li {list-style:none;   position:relative; display:inline-block;}
 #dropmenu > li.menu-item-has-children:hover {background-color: #111;}
-#dropmenu > li > a { 
-	display: block; 
+#dropmenu > li > a {
+	display: block;
 	padding:0 12px;
-	font-size: 14px; 
+	font-size: 14px;
 	position: relative;
 	color: #aaa;
 }
@@ -146,15 +146,15 @@ a#logo img {vertical-align: middle;}
 	color: #fff;
 }
 #dropmenu li ul {
-	list-style:none; 
-	position:absolute; 
-	width:180px; 
-	padding:10px; 
-	z-index:300; 
-	top:70px; 
-	right: -1px; 
-	background: #111111; 
-	border: 1px solid #000; 
+	list-style:none;
+	position:absolute;
+	width:180px;
+	padding:10px;
+	z-index:300;
+	top:70px;
+	right: -1px;
+	background: #111111;
+	border: 1px solid #000;
 	border-width: 0 1px 1px;
 	display:block;
 	visibility:hidden;
@@ -177,24 +177,24 @@ a#logo img {vertical-align: middle;}
 #dropmenu li ul li a:hover {background: #222; opacity:1;}
 #dropmenu li ul li ul {position:absolute;top:-10px; right:180px; border-width: 1px;}
 #dropmenu li ul li ul:before {border-width: 1px;}
-#dropmenu li:hover ul ul, 
-#dropmenu li:hover ul ul ul, 
+#dropmenu li:hover ul ul,
+#dropmenu li:hover ul ul ul,
 #dropmenu li:hover ul ul ul ul {visibility:hidden; opacity:0;}
-#dropmenu li:hover ul, 
-#dropmenu li li:hover ul, 
-#dropmenu li li li:hover ul, 
+#dropmenu li:hover ul,
+#dropmenu li li:hover ul,
+#dropmenu li li li:hover ul,
 #dropmenu li li li li:hover ul {display:block; visibility:visible; opacity:1;
-	-moz-transition-property:opacity;  
- 	-moz-transition-duration:0.15s;  
+	-moz-transition-property:opacity;
+ 	-moz-transition-duration:0.15s;
  	-moz-transition-timing-function:linear;
- 	
- 	-webkit-transition-property:opacity;  
- 	-webkit-transition-duration:0.15s;  
- 	-webkit-transition-timing-function:linear; 
- 	
- 	-o-transition-property:opacity;  
- 	-o-transition-duration:0.15s;  
- 	-o-transition-timing-function:linear; 
+
+ 	-webkit-transition-property:opacity;
+ 	-webkit-transition-duration:0.15s;
+ 	-webkit-transition-timing-function:linear;
+
+ 	-o-transition-property:opacity;
+ 	-o-transition-duration:0.15s;
+ 	-o-transition-timing-function:linear;
 }
 #dropmenu li.current-menu-item > a,
 #dropmenu li.current-menu-ancestor > a {color: #fff;}
@@ -208,14 +208,14 @@ a#logo img {vertical-align: middle;}
 
 /*--------FOOTER STUFF--------*/
 #footer {
-	width:100%; 
-	height: 40px; 
+	width:100%;
+	height: 40px;
 	border-top: 1px solid #000;
-	position: fixed; 
-	bottom: 0; 
-	left: 0; 
+	position: fixed;
+	bottom: 0;
+	left: 0;
 	z-index: 1000;
-	line-height: 40px; 
+	line-height: 40px;
 	font-size: 12px;
 	background: #171717;
 	background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#171717));
@@ -224,7 +224,7 @@ a#logo img {vertical-align: middle;}
 #footer:before {border-top: 1px solid #2c2c2c;border-top: 1px solid rgba(255,255,255,.05); content:""; position: absolute; top: 0; left: 0; right:0; bottom:0; z-index: 0;}
 
 .widgetsToggle {
-	height: 40px; 
+	height: 40px;
 	text-align: center;
 	line-height: 40px;
 	width: 35px;
@@ -234,21 +234,21 @@ a#logo img {vertical-align: middle;}
 	z-index: 2;
 	float: right;
 	display: inline-block;
-	border: 1px solid #000; 
+	border: 1px solid #000;
 	border-width: 0 1px;
 	background: #222;
 	background: -webkit-gradient(linear, left top, left bottom, from(#323232), to(#171717));
 	background: -moz-linear-gradient(top,  #323232,  #171717);
 }
 .widgetsToggle:before {
-	border: 1px solid #333; 
-	border: 1px solid rgba(255,2555,255,.05); 
-	content:""; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	right:0; 
-	bottom:0; 
+	border: 1px solid #333;
+	border: 1px solid rgba(255,2555,255,.05);
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom:0;
 	z-index: 0;
 }
 .widgetsToggle i {line-height: 40px; vertical-align: middle;}
@@ -268,15 +268,15 @@ a#logo img {vertical-align: middle;}
 /*--SINGLE POST NAVIGATION---*/
 a[rel~="prev"],
 a[rel~="next"] {
-	float: left; 
+	float: left;
 	font-size: 14px;
-	line-height: 40px; 
-	height: 40px; 
-	position: relative; 
+	line-height: 40px;
+	height: 40px;
+	position: relative;
 	text-align: center;
-	padding:0 12px; 
+	padding:0 12px;
 	padding: 0;
-	width: 35px; 
+	width: 35px;
 	margin: 0 -1px 0 0;
 	cursor: pointer;
 	border: 1px solid #000;
@@ -290,14 +290,14 @@ a[rel~="prev"] i,
 a[rel~="next"] i {line-height: 40px;}
 a[rel~="prev"]:before,
 a[rel~="next"]:before {
-	border: 1px solid #363636; 
-	border: 1px solid rgba(255,2555,255,.05); 
-	content:""; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	right:0; 
-	bottom:0; 
+	border: 1px solid #363636;
+	border: 1px solid rgba(255,2555,255,.05);
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom:0;
 	z-index: 0;
 }
 a[rel~="prev"]:hover,
@@ -309,11 +309,11 @@ a[rel~="next"]:hover {
 
 /*---CIRCULAR TARGET THING---*/
 #target {
-	position: fixed; 
-	display: none; 
-	top: 50%; 
-	left: 50%; 
-	z-index: 2;	
+	position: fixed;
+	display: none;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
 	height: 20px;
 	width: 20px;
 	margin: -40px 0 0 -25px;
@@ -325,15 +325,15 @@ a[rel~="next"]:hover {
 
 /*---MARKER TITLE POPUP---*/
 .markerTitle {
-	font-size:10px; 
-	color:#fff; 
-	width:120px; 
+	font-size:10px;
+	color:#fff;
+	width:120px;
 	display: none;
 	position: absolute;
-	bottom: 32px; 
+	bottom: 32px;
 	bottom: 0;
 	left: -65px;
-	padding:7px; 
+	padding:7px;
 	text-align:center;
 	border: 1px solid #000;
 	background: #171717;
@@ -342,14 +342,14 @@ a[rel~="next"]:hover {
 	border-radius: 3px;
 }
 .markerTitle:before {
-	border: 1px solid #333; 
-	border: 1px solid rgba(255,2555,255,.05); 
-	content:""; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	right:0; 
-	bottom:0; 
+	border: 1px solid #333;
+	border: 1px solid rgba(255,2555,255,.05);
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom:0;
 	z-index: 0;
 }
 .markerTitle:after {
@@ -367,15 +367,15 @@ a[rel~="next"]:hover {
 
 /*---MAP IMAGE POP-UP CONTAINER---*/
 #mapStyleContainer {
-	position: absolute; 
-	left: 50%; 
+	position: absolute;
+	left: 50%;
 	margin-left: -26px;
-	bottom: 50px; 
-	width: 42px; 
+	bottom: 50px;
+	width: 42px;
 	height: 42px;
 	display: none;
 	padding: 5px;
-	z-index: 30000; 
+	z-index: 30000;
 	border: 1px solid #000;
 	background: #171717;
 	background: -webkit-gradient(linear, left top, left bottom, from(#323232), to(#171717));
@@ -383,14 +383,14 @@ a[rel~="next"]:hover {
 	border-radius: 3px;
 }
 #mapStyleContainer:before {
-	border: 1px solid #333; 
-	border: 1px solid rgba(255,2555,255,.05); 
-	content:""; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	right:0; 
-	bottom:0; 
+	border: 1px solid #333;
+	border: 1px solid rgba(255,2555,255,.05);
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom:0;
 	z-index: 0;
 }
 #mapStyleContainer:after {
@@ -412,16 +412,16 @@ a[rel~="next"]:hover {
 
 /*---MAP TYPE BUTTON CONTAINER---*/
 #mapTypeContainer {
-	overflow: visible; 
+	overflow: visible;
 	font-size: 10px;
 	margin: 0 -1px 0 0;
-	line-height: 40px; 
-	height: 40px; 
+	line-height: 40px;
+	height: 40px;
 	width: 39px;
-	position: relative; 
+	position: relative;
 	z-index: 1;
 	text-align: center;
-	padding:0 12px; 
+	padding:0 12px;
 	float: left;
 	color: #fff;
 	border: 1px solid #000;
@@ -431,14 +431,14 @@ a[rel~="next"]:hover {
 	background: -moz-linear-gradient(top,  #323232,  #171717);
 }
 #mapTypeContainer:before {
-	border: 1px solid #363636; 
-	border: 1px solid rgba(255,2555,255,.05); 
-	content:""; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	right:0; 
-	bottom:0; 
+	border: 1px solid #363636;
+	border: 1px solid rgba(255,2555,255,.05);
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom:0;
 	z-index: 0;
 }
 #mapTypeContainer:hover {
@@ -453,33 +453,33 @@ a[rel~="next"]:hover {
 
 /*---FOOTER MARKER CONTAINER---*/
 #markers {
-	line-height: 40px; 
-	height: 40px; 
-	display: inline-block; 
-	float: left; 
+	line-height: 40px;
+	height: 40px;
+	display: inline-block;
+	float: left;
 	width: 330px;
-	position: relative; 
+	position: relative;
 }
 body.iPad #markers {width: 280px;}
 
 /*---MARKER NAVIGATION---*/
 .markerNav {
-	line-height: 40px; 
-	height: 40px; 
-	display: inline-block; 
-	float: left; 
-	position: relative; 
-	border: 1px solid #000; 
-	border-width: 0 1px; 
-	float: left; 
+	line-height: 40px;
+	height: 40px;
+	display: inline-block;
+	float: left;
 	position: relative;
-	line-height: 40px; 
-	height: 40px; 
+	border: 1px solid #000;
+	border-width: 0 1px;
+	float: left;
+	position: relative;
+	line-height: 40px;
+	height: 40px;
 	color: #fff;
-	font-size: 12px; 
-	padding: 0; 
-	width: 35px; 
-	text-align: center; 
+	font-size: 12px;
+	padding: 0;
+	width: 35px;
+	text-align: center;
 	font-weight: normal;
 	cursor: pointer;
 	background: #222;
@@ -488,14 +488,14 @@ body.iPad #markers {width: 280px;}
 }
 .markerNav i {line-height: 40px;}
 .markerNav:before {
-	border: 1px solid #333; 
-	border: 1px solid rgba(255,2555,255,.05); 
-	content:""; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	right:0; 
-	bottom:0; 
+	border: 1px solid #333;
+	border: 1px solid rgba(255,2555,255,.05);
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom:0;
 	z-index: 0;
 }
 .markerNav:hover {
@@ -514,15 +514,15 @@ body.iPad #markers {width: 280px;}
 
 /*---CUSTOM INFOWINDOW---*/
 .markerInfo {
-	font-size: 12px; 
-	width: 300px; 
+	font-size: 12px;
+	width: 300px;
 	z-index: 1002;
-	color: #fff; 
-	bottom: -1px; 
-	left:36px; 
-	position: fixed; 
+	color: #fff;
+	bottom: -1px;
+	left:36px;
+	position: fixed;
 	padding: 10px 15px;
-	display: none; 
+	display: none;
 	font-weight: normal;
 	border: 1px solid #000;
 	box-shadow: 0px 0px 5px rgba(0,0,0,.5);
@@ -532,18 +532,18 @@ body.iPad #markers {width: 280px;}
 }
 body.iPad .markerInfo {width: 250px;}
 .markerInfo:before {
-	border: 1px solid #333; 
-	border: 1px solid rgba(255,2555,255,.05); 
-	content:""; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	right:0; 
-	bottom:0; 
+	border: 1px solid #333;
+	border: 1px solid rgba(255,2555,255,.05);
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom:0;
 	z-index: 0;
 }
 .markerInfo h2 {line-height: 1em; margin: 3px 0 5px;}
-.markerInfo h2 a {font-size: 16px; line-height: 1em;}
+.markerInfo h2 a {font-size: 16px;line-height: 10px;}
 .markerInfo .imgLink {float: left; display: block; margin: 5px 15px 5px 0;}
 .markerInfo img {display: block; border: 1px solid #000;}
 .markerInfo a {position: relative; z-index: 2;}
@@ -560,15 +560,15 @@ body.iPad .markerInfo {width: 250px;}
 
 /*---FOOTER SOCIAL ICONS---*/
 #socialStuff {
-	float: right; 
-	height: 40px; 
+	float: right;
+	height: 40px;
 	position: relative;
 	padding-right: 7px;
 }
 .socialicon {
-	margin: 0 3px 0 0; 
-	border: none !important; 
-	z-index: 1; 
+	margin: 0 3px 0 0;
+	border: none !important;
+	z-index: 1;
 	position: relative;
 	font-size: 16px;
 	line-height: 40px;
@@ -593,23 +593,23 @@ body.iPad .markerInfo {width: 250px;}
 	top: 40px;
 	margin-right: -1px;
 	display: inline-block;
-	position: relative; 
+	position: relative;
 	z-index: 1;
-	border: 1px solid #000; 
-	border-width: 0 1px; 
+	border: 1px solid #000;
+	border-width: 0 1px;
 	background: #222;
 	background: -webkit-gradient(linear, left top, left bottom, from(#323232), to(#171717));
 	background: -moz-linear-gradient(top,  #323232,  #171717);
 }
 .pageContent:before {
-	border: 1px solid #333; 
-	border: 1px solid rgba(255,2555,255,.05); 
-	content:""; 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	right:0; 
-	bottom:0; 
+	border: 1px solid #333;
+	border: 1px solid rgba(255,2555,255,.05);
+	content:"";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom:0;
 	z-index: 0;
 }
 .pageContent:hover {
@@ -618,7 +618,7 @@ body.iPad .markerInfo {width: 250px;}
 	background: -moz-linear-gradient(top,  #444444,  #222222);
 }
 .pageContent h2 {
-	font-size: 14px;  
+	font-size: 14px;
 	line-height: 40px;
 	cursor: pointer;
 	position: relative;
@@ -632,12 +632,12 @@ body.iPad .markerInfo {width: 250px;}
 
 #searchform {background: #111; border: none;}
 #searchform #s {width:190px; padding:0 15px; height: 40px; line-height: 40px; margin: 0; background: none; border: none;}
-#searchform #searchsubmit {display: none;} 
+#searchform #searchsubmit {display: none;}
 #searchform #searchsubmit:hover {text-decoration: none;}
 
 #header #searchform {
-	position: absolute; 
-	right: 35px; 
+	position: absolute;
+	right: 35px;
 	display: none;
 	top: 110%;
 	border-radius: 20px;
@@ -647,7 +647,7 @@ body.iPad .markerInfo {width: 250px;}
 
 /* -----POST AND ENTRY STUFF----- */
 .listing > div {margin: 30px 0;}
-.listing h2.posttitle, 
+.listing h2.posttitle,
 .listing .entrytitle {margin-bottom: 5px; font-size: 15px;}
 
 h2.posttitle, .entrytitle {margin-bottom: 5px; font-size: 22px;}
@@ -683,12 +683,12 @@ ul.galleryBox li:hover {border-color: #fff;}
 
 /*------TOGGLE STUFF-----*/
 .toggleButton {
-	cursor: pointer; 
-	color: #fff; 
+	cursor: pointer;
+	color: #fff;
 	clear: both;
 	font-size: 11px;
 	padding: 5px 8px;
-	position: relative; 
+	position: relative;
 	border: 1px solid #000;
 	border-width: 1px 0 1px;
 	background: #333;
@@ -707,12 +707,12 @@ ul.galleryBox li:hover {border-color: #fff;}
 
 /* ----TOOL TIP STYLE----- */
 .itooltip {
-	display:none; 
-	font-size: 12px; 
-	color: #fff; 
-	z-index: 10000000; 
-	position:absolute; 
-	background: #222; 
+	display:none;
+	font-size: 12px;
+	color: #fff;
+	z-index: 10000000;
+	position:absolute;
+	background: #222;
 	padding: 5px 10px;
 	border: 1px solid #000;
 }
@@ -723,12 +723,12 @@ ul.galleryBox li:hover {border-color: #fff;}
 
 /*-----SIDEBAR STUFF----*/
 #sidebar {
-	position: fixed; 
-	bottom: 0; 
-	right: 0; 
-	padding: 35px 0px 0px 0px; 
-	z-index: 800; 
-	border: 1px solid #000; 
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 35px 0px 0px 0px;
+	z-index: 800;
+	border: 1px solid #000;
 	width: 280px;
 	height: 105px;
 	overflow: auto;
@@ -768,22 +768,22 @@ input[type="email"],
 input[type="text"],
 input[type="password"],
 textarea {
-	background: #333; 
-	border: 1px solid #3a3a3a; 
+	background: #333;
+	border: 1px solid #3a3a3a;
 	color: #fff;
 	margin:5px 0 0 0;
 	border-radius: 3px;
 }
 
-#commentform input[type="submit"], 
+#commentform input[type="submit"],
 input[type="submit"] {
-	cursor: pointer; 
-	border: none; 
-	display: block; 
+	cursor: pointer;
+	border: none;
+	display: block;
 	padding: 3px 8px;
 	border-radius: 3px;
 }
-#commentform input[type="submit"]:hover, 
+#commentform input[type="submit"]:hover,
 input[type="submit"]:hover {background:#333; color: #fff;}
 
 #sidebar #searchform {border-radius: 20px; background: #222;}
@@ -814,7 +814,7 @@ img#wpstats {width:0;height:0;border:none;overflow:hidden;}
 .rssSummary {padding-bottom:15px;}
 .clear {clear: both;}
 p.clear {height:1px; width:1px; }
-.hide {display: none;} 
+.hide {display: none;}
 .red {color: red;}
 
 /* -----CALENDAR STUFF----- */
