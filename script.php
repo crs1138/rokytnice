@@ -1,19 +1,5 @@
 <script type="text/javascript">
 
-// // define marker class
-// function crs_marker (marker_title, permalink, latitude, longitude ) {
-//   this.marker_title = marker_title;
-//   this.permalink = permalink;
-//   // this.addrOne = addrOne;
-//   // this.addrTwo = addrTwo;
-//   this.latitude = latitude;
-//   this.longitude = longitude;
-//   // this.thumbnail = thumbnail;
-//   // this.pin = pin;
-// }
-
-// var markers = new Array();
-
 <?php
   class Marker {
     public $data;
