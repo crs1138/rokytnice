@@ -109,7 +109,7 @@ jQuery.noConflict(); jQuery(document).ready(function(){
         ////////////////////
         jQuery('#prevMarker').live('click', function(){
         	var activeMarker = jQuery('.activeMarker');
-        	if(activeMarker.is(':not(:first-child)')){
+        	if(activeMarker.is(':not(:first-child) ')){
         		activeMarker.removeClass('activeMarker').prev('.marker').addClass('activeMarker').mouseover();
         	} else {
         		activeMarker.removeClass('activeMarker');
@@ -139,7 +139,7 @@ jQuery.noConflict(); jQuery(document).ready(function(){
     	gMap.gmap3({
     		map: {
     			options: {
-    				mapTypeId: 'roadmap'
+    				mapTypeId: 'roadmap' //hybrid, satellite, roadmap, terrain
     				// mapTypeId: new google.maps.mapTypeId.ROADMAP
     			}
     		}

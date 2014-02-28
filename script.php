@@ -7,13 +7,14 @@
     public $latLng = array();
     public $options;
 
-    public function __construct($latitude, $longitude, $title, $permalink, $pin) {
+    public function __construct($latitude, $longitude, $title, $permalink, $pin, $excerpt) {
       $this->latLng  = array( $latitude, $longitude );
       $this->data = $title;
       $this->tag = $permalink;
       $this->options = (object) array(
         "icon" => $pin
         );
+      $this->excerpt = $excerpt;
     }
 
     public function get_marker_coords (){
@@ -35,6 +36,11 @@
     $addrOne = get_post_meta( $post->ID, 'themolitor_address_one', TRUE );
     $addrTwo = get_post_meta( $post->ID, 'themolitor_address_two', TRUE );
     $pin = get_post_meta( $post->ID, 'themolitor_pin', TRUE );
+
+    //VAR SETUP
+    $mainZoom = get_theme_mod('themolitor_customizer_home_zoom');
+    $toggle = get_theme_mod('themolitor_customizer_mapstyle_onoff');
+    $sitePin = get_theme_mod('themolitor_customizer_pin');
 
     //LEGACY SUPPORT
     $data = get_post_meta( $post->ID, 'key', true );
@@ -65,8 +71,9 @@
       if($latitude && $longitude){
         $title = get_the_title();
         $permalink = get_permalink();
+        $excerpt = get_the_excerpt();
 
-        $single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin);
+        $single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin, $excerpt);
         $markers[] = $single_marker;
 
       }
@@ -80,20 +87,28 @@
   */
   var markersJSON = '<?php echo json_encode($markers); ?>';
   var crs_markersJS = jQuery.parseJSON(markersJSON);
-  console.log("Markers: ", crs_markersJS);
 
 //<![CDATA[
 jQuery.noConflict(); jQuery(document).ready(function(){
-    //VAR SETUP
-    <?php
-  $mainZoom = get_theme_mod('themolitor_customizer_home_zoom');
-  $toggle = get_theme_mod('themolitor_customizer_mapstyle_onoff');
-  $sitePin = get_theme_mod('themolitor_customizer_pin');
-  ?>
+
   // FOOTER MAP controls
   jQuery('#footer').prepend('<div class="markerNav" title="<?php _e('Prev','themolitor');?>" id="prevMarker"><i class="fa fa-chevron-left"></i></div><div id="markers"></div><div class="markerNav" title="<?php _e('Next','themolitor');?>" id="nextMarker"><i class="fa fa-chevron-right"></i></div><?php if($toggle){ ?><div id="mapTypeContainer"><div id="mapStyleContainer"><div id="mapStyle" class="roadmap"></div></div><div id="mapType" title="<?php _e('Map Type','themolitor');?>" class="roadmap"></div></div><?php } ?>');
 
     jQuery('body').prepend("<div id='target'></div>");
+
+    //Markers Description Init
+    jQuery.each( crs_markersJS, function(index, value) {
+
+      var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><a class="imgLink" href="'+crs_markersJS[index].tag+'"><img src="'+crs_markersJS[index].options.icon+'" /></a><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2><p>'+crs_markersJS[index].excerpt+'</p><a class="markerLink" href="'+crs_markersJS[index].tag+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+(index+1)+' / <span></span></div><div class="clear"></div></div></div>');
+
+      jQuery('#markers').append(jQuerybutton);
+      jQuery('#marker0').addClass('activeMarker');
+      jQuery('.activeMarker #markerInfo0').addClass('activeInfo').css('display','block');
+
+      var numbers = jQuery(".markerInfo").length;
+      jQuery(".markerTotal span").html(numbers);
+
+    });
 
     // Initialize GMAP3
     jQuery('#gMap').addClass('activeMap').gmap3({
@@ -124,6 +139,13 @@ jQuery.noConflict(); jQuery(document).ready(function(){
                 position: google.maps.ControlPosition.RIGHT_CENTER
             }
         },
+        callback: function(map){
+          console.log('Map init:', map);
+          console.log('MarkersJS:', crs_markersJS);
+
+
+        },   // callback end
+
         // Listen Once
         onces: {
           bounds_changed: function(map){
@@ -166,29 +188,28 @@ jQuery.noConflict(); jQuery(document).ready(function(){
             console.log('event: ', context);
             console.log('context: ', context);
             window.location = context.tag;
-
           } //click end
         }, // events end
         callback: function(marker){
           var $this = jQuery(this);
           jQuery.each( crs_markersJS, function(index, value) {
 
-          // var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><a class="imgLink" href="'+link+'">'+img+'</a><h2><a href="'+link+'">'+title+'</a></h2><p>'+excerpt+'</p><a class="markerLink" href="'+link+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+i+' / <span></span></div><div class="clear"></div></div></div>');
+          //   var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><a class="imgLink" href="'+crs_markersJS[index].tag+'"><img src="'+crs_markersJS[index].options.icon+'" /></a><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2><p>'+crs_markersJS[index].excerpt+'</p><a class="markerLink" href="'+crs_markersJS[index].tag+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+(index+1)+' / <span></span></div><div class="clear"></div></div></div>');
+            var jQuerybutton = jQuery('#marker'+index);
+            console.log('#marker:', jQuerybutton);
 
-          var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2></div></div>');
-                   jQuerybutton.mouseover(function(){
-                       $this.gmap3("get").panTo(marker[index].position);
-                       jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
-                    });
-
-
-            // var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2></div></div>');
+            jQuerybutton.mouseover(function(){
+              $this.gmap3("get").panTo(marker[index].position);
+              jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
+            });
 
 
-            jQuery('#markers').append(jQuerybutton);
 
-            var numbers = jQuery(".markerInfo").length;
-            jQuery(".markerTotal span")
+
+            // jQuery('#markers').append(jQuerybutton);
+
+            // var numbers = jQuery(".markerInfo").length;
+            // jQuery(".markerTotal span").html(numbers);
           });
 
         }   // callback end

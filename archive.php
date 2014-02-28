@@ -1,6 +1,6 @@
-<?php 
+<?php
 get_header();
-	
+
 //VAR SETUP
 $crumbs = get_theme_mod('themolitor_customizer_bread_onoff');
 $blogCat = get_option('themolitor_blog_category');
@@ -13,16 +13,16 @@ $bg = get_theme_mod('themolitor_customizer_background_url');
 <div id="main" <?php if($blogCat && is_category($blogCat) || cat_is_ancestor_of($blogCat, $cat)){ echo 'class="blog"'; } ?>>
 	<div id="handle"></div>
 	<div id="closeBox"></div>
-	
-		<h2 class="entrytitle"><?php single_cat_title(); ?></h2>	
+
+		<h2 class="entrytitle"><?php single_cat_title(); ?></h2>
 		<?php if ($crumbs && function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
 		<div class="entry"><?php echo category_description(); ?></div>
-	
+
 	<div class="listing">
-	
-	<?php 
+
+	<?php
 	if($blogCat && is_category($blogCat) || cat_is_ancestor_of($blogCat, $cat)){  //IF BLOG CATEGORY...
-	
+
 		if (have_posts()) : while (have_posts()) : the_post(); ?>
 			<div <?php post_class();?>>
 				<h2 class="blogTitle"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
@@ -33,9 +33,9 @@ $bg = get_theme_mod('themolitor_customizer_background_url');
     			<div class="clear"></div>
     		</div>
         <?php endwhile; endif;
-        
+
    		get_template_part('navigation');
-	
+
 	} else { //IF NOT BLOG CATEGORY...
 		if (have_posts()) {
 			get_template_part('navigation');
@@ -43,7 +43,7 @@ $bg = get_theme_mod('themolitor_customizer_background_url');
 		<h2><?php _e('Not Found','themolitor');?></h2>
 		<p><?php _e('The page you were looking for does not exist.','themolitor');?></p>
 		<?php }} ?>
-	
+
 	</div><!--end listing-->
 </div><!--end main-->
 
@@ -51,7 +51,7 @@ $bg = get_theme_mod('themolitor_customizer_background_url');
 </div><!--end content-->
 </div><!--end contentContainer-->
 
-<?php if($blogCat && $bg && is_category($blogCat) || cat_is_ancestor_of($blogCat, $cat)){ //IF BLOG CATEGORY...?>  
+<?php if($blogCat && $bg && is_category($blogCat) || cat_is_ancestor_of($blogCat, $cat)){ //IF BLOG CATEGORY...?>
 <script type="text/javascript">
 jQuery.noConflict(); jQuery(document).ready(function(){
 	//FULL SCREEN IMAGE
@@ -59,8 +59,8 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 });
 </script>
 <?php } else { //IF NOT BLOG CATEGORY...
-	get_template_part('script_list'); 
+	get_template_part('script_list');
 }
 
-get_footer(); 
+get_footer();
 ?>
