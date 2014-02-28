@@ -184,30 +184,27 @@ jQuery.noConflict(); jQuery(document).ready(function(){
           } //click end
         }, // events end
         callback: function(marker){
+          var $this = jQuery(this);
           jQuery.each( crs_markersJS, function(index, value) {
-            console.log( index + ": " + value );
-            var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2></div></div>');
+
+          // var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><a class="imgLink" href="'+link+'">'+img+'</a><h2><a href="'+link+'">'+title+'</a></h2><p>'+excerpt+'</p><a class="markerLink" href="'+link+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+i+' / <span></span></div><div class="clear"></div></div></div>');
+
+          var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2></div></div>');
+                   jQuerybutton.mouseover(function(){
+                       $this.gmap3("get").panTo(marker[index].position);
+                       jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
+                    });
+
+
+            // var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2></div></div>');
+
+
             jQuery('#markers').append(jQuerybutton);
+
+            var numbers = jQuery(".markerInfo").length;
+            jQuery(".markerTotal span")
           });
-          // var jQuerybutton = jQuery('<div id="marker'+i+'" class="marker"><div id="markerInfo'+i+'" class="markerInfo"><a class="imgLink" href="'+link+'">'+img+'</a><h2><a href="'+link+'">'+title+'</a></h2><p>'+excerpt+'</p><a class="markerLink" href="'+link+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+i+' / <span></span></div><div class="clear"></div></div></div>');
-          // jQuerybutton.mouseover(function(){
-          //     jQuerythis.gmap3({
-          //       action:'panTo',
-          //       args:[marker.position]
-          //     });
-          //     jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
-          //  });
-          // jQuery('#markers').append(jQuerybutton);
-          // var numbers = jQuery(".markerInfo").length;
-          // jQuery(".markerTotal span, #results span").html(numbers);
-          // // if(i == 1){
-          //   // jQuery('.marker:first-child').addClass('activeMarker').mouseover();
-          // // }
-          // jQuerythis.gmap3({
-          //   action:'addOverlay',
-          //   content: '<div id="markerTitle'+i+'" class="markerTitle">'+title+'</div>',
-          //   latLng: marker.getPosition()
-          //  });
+
         }   // callback end
 
       } // marker end
