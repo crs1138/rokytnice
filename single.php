@@ -8,7 +8,7 @@ class Marker {
   public $latLng = array();
   public $options;
 
-  public function __construct($latitude, $longitude, $title, $permalink, $pin, $excerpt) {
+  public function __construct($latitude, $longitude, $title, $permalink, $pin, $excerpt, $kml=null) {
     $this->latLng  = array( $latitude, $longitude );
     $this->data = $title;
     $this->tag = $permalink;
@@ -16,6 +16,7 @@ class Marker {
       "icon" => $pin
       );
     $this->excerpt = $excerpt;
+    $this->kml = $kml;
   }
 
   public function get_marker_coords (){
@@ -52,6 +53,9 @@ $sitePin = get_theme_mod('themolitor_customizer_pin');
 	$addrTwo = get_post_meta( $post->ID, 'themolitor_address_two', TRUE );
 	$pin = get_post_meta( $post->ID, 'themolitor_pin', TRUE );
 	$bg = get_post_meta( $post->ID, 'themolitor_bg_img', TRUE );
+
+	$kml = get_post_meta( $post->ID, 'themolitor_kml_layer', TRUE );
+	// $kml = 'http://planxdesign.eu/gmap/testing-circuit.kml';
 
 	//LEGACY SUPPORT
 	$data = get_post_meta( $post->ID, 'key', true );
@@ -170,7 +174,7 @@ $sitePin = get_theme_mod('themolitor_customizer_pin');
 	$permalink = get_permalink();
 	$excerpt = get_the_excerpt();
 
-	$single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin, $excerpt);
+	$single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin, $excerpt, $kml);
 	$markers[] = $single_marker;
 ?>
 <script>
@@ -251,14 +255,15 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 		},
    		kmllayer:{
    			options:{
-   				url: "http://planxdesign.eu/gmap/testing-circuit.kml",
+   				url: crs_markersJS[0].kml,
+   				// url: "http://planxdesign.eu/gmap/testing-circuit.kml",
    				opts:{
    					preserveViewport: true
    				}
    			}
    		}
 	}); // end gMap.init
-
+	console.log('crs_markersJS[0].kml: ', crs_markersJS[0].kml );
 	// Get Directions on click #myDirections
 	jQuery(document).on('click', '#myDirections', function(event){
 		event.preventDefault ? event.preventDefault() : event.returnValue = false;
@@ -298,6 +303,7 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 			}
 		});
 	});
+
 
 }); // end document.ready
 </script>
