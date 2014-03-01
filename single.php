@@ -1,6 +1,29 @@
 <?php
 get_header();
 
+
+class Marker {
+  public $data;
+  public $tag;
+  public $latLng = array();
+  public $options;
+
+  public function __construct($latitude, $longitude, $title, $permalink, $pin, $excerpt) {
+    $this->latLng  = array( $latitude, $longitude );
+    $this->data = $title;
+    $this->tag = $permalink;
+    $this->options = (object) array(
+      "icon" => $pin
+      );
+    $this->excerpt = $excerpt;
+  }
+
+  public function get_marker_coords (){
+    return "{latLng: [" . $this->latLng['latitude'] . ", " . $this->latLng['longitude'] . "], data: " . $this->title . "}";
+  }
+
+}
+
 //VAR SETUP
 $crumbs = get_theme_mod('themolitor_customizer_bread_onoff');
 $siteBg = get_theme_mod('themolitor_customizer_background_url');
@@ -60,6 +83,8 @@ $sitePin = get_theme_mod('themolitor_customizer_pin');
 		$longitude = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
 	}
 	?>
+
+
 	<div  <?php post_class(); ?>>
 
 		<h2 class="posttitle"><?php the_title(); ?><?php edit_post_link(' <small>&#9997;</small>','',' '); ?></h2>
@@ -73,7 +98,7 @@ $sitePin = get_theme_mod('themolitor_customizer_pin');
 			<?php
 			if ($addrOne && $addrTwo) {
 				echo '<p id="postAddr">'.$addrOne.'<br />';
-				echo $addrTwo.'<br /><em><a target="_blank" title="'. __('Get Directions','themolitor').'" href="http://maps.google.com/maps?daddr='.$addrOne.' '.$addrTwo.'">'. __('Get Directions','themolitor').' &rarr;</a></em></p>';
+				echo $addrTwo.'<br /><em><a id="myDirections" title="'. __('Get Directions','themolitor').'" href="#">'. __('Get Directions','themolitor').' &rarr;</a></em></p>';
 			}
 
 			the_content();
@@ -85,45 +110,45 @@ $sitePin = get_theme_mod('themolitor_customizer_pin');
 		$attachments = get_posts($args);
 		if ($attachments) {
 		?>
-		<div id="galleryToggle" class="toggleButton closed"><span>+</span><?php _e('Gallery','themolitor');?></div>
-		<ul class="galleryBox">
-       		<?php attachment_toolbox('small'); ?>
-        </ul>
+			<div id="galleryToggle" class="toggleButton closed"><span>+</span><?php _e('Gallery','themolitor');?></div>
+			<ul class="galleryBox">
+	       		<?php attachment_toolbox('small'); ?>
+	        </ul>
 		<?php }
 
 		//RELATED STUFF
-			$original_post = $post;
-			$tags = wp_get_post_tags($post->ID);
-			$showtags = 10;
-			if (!empty($tags)) {
-  				$first_tag = $tags[0]->term_id;
-  				$tagname = $tags[0]->name;
-  				$args=array(
-    				'tag__in' => array($first_tag),
-    				'post__not_in' => array($post->ID),
-    				'caller_get_posts'=>1
-   				);
-  				$my_query = new WP_Query($args);
-  				if( $my_query->have_posts() ) {
-		?>
-		<div id="relatedToggle" class="toggleButton"><span>+</span><?php _e('Related','themolitor');?></div>
-       	<div id="related">
-			<ul>
-				<?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
-				<li><a class="tooltip" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'small' ); ?></a></li>
-				<?php endwhile; ?>
+		$original_post = $post;
+		$tags = wp_get_post_tags($post->ID);
+		$showtags = 10;
+		if (!empty($tags)) {
+			$first_tag = $tags[0]->term_id;
+			$tagname = $tags[0]->name;
+			$args=array(
+				'tag__in' => array($first_tag),
+				'post__not_in' => array($post->ID),
+				'caller_get_posts'=>1
+			);
+			$my_query = new WP_Query($args);
+			if( $my_query->have_posts() ) { ?>
 
-			</ul>
-			<?php
-			//DISPLAYS VIEW ALL LINK IF RELATED POSTS EXCEEDS $shotags+1
-			$count = get_tags('include='.$first_tag.'');
-			if (!empty($count) && !empty($tags)) {
-				foreach ($count as $tag) {
-				?>
-				<p id="relatedItemsLink"><a class="tooltip" title="<?php _e('Items Tagged','themolitor');?> '<?php echo $tagname; ?>' (<?php echo $tag->count; ?>)" href="<?php echo get_tag_link($first_tag); ?>"><em><?php _e('View Map of Related Items','themolitor');?> &rarr;</em></a></p>
-			<?php }}?>
+				<div id="relatedToggle" class="toggleButton"><span>+</span><?php _e('Related','themolitor');?></div>
+		       	<div id="related">
+					<ul>
+						<?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+						<li><a class="tooltip" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'small' ); ?></a></li>
+						<?php endwhile; ?>
 
-		</div><!--end related-->
+					</ul>
+				<?php
+				//DISPLAYS VIEW ALL LINK IF RELATED POSTS EXCEEDS $shotags+1
+				$count = get_tags('include='.$first_tag.'');
+				if (!empty($count) && !empty($tags)) {
+					foreach ($count as $tag) {
+					?>
+					<p id="relatedItemsLink"><a class="tooltip" title="<?php _e('Items Tagged','themolitor');?> '<?php echo $tagname; ?>' (<?php echo $tag->count; ?>)" href="<?php echo get_tag_link($first_tag); ?>"><em><?php _e('View Map of Related Items','themolitor');?> &rarr;</em></a></p>
+				<?php }}?>
+
+				</div><!--end related-->
 			<?php  }}
 			$post = $original_post;
 			wp_reset_query();
@@ -132,25 +157,43 @@ $sitePin = get_theme_mod('themolitor_customizer_pin');
 
 
 		<?php if ('open' == $post->comment_status) : ?>
-		<div id="commentToggle" class="toggleButton closed"><span>+</span><?php comments_number( __('Comments','themolitor'), __('1 Comment','themolitor'), __('% Comments','themolitor') ); ?></div>
-        <div class="clear" id="commentsection">
-			<?php comments_template(); ?>
-        </div>
+			<div id="commentToggle" class="toggleButton closed"><span>+</span><?php comments_number( __('Comments','themolitor'), __('1 Comment','themolitor'), __('% Comments','themolitor') ); ?></div>
+	        <div class="clear" id="commentsection">
+				<?php comments_template(); ?>
+	        </div>
         <?php endif;?>
 
 	</div><!--end post-->
 
-<?php if($latitude && $longitude){ //START MAP?>
+<?php if($latitude && $longitude){
+	$title = get_the_title();
+	$permalink = get_permalink();
+	$excerpt = get_the_excerpt();
+
+	$single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin, $excerpt);
+	$markers[] = $single_marker;
+?>
 <script>
+/* Pass the array of markers from PHP to JS to be processed in gmap3() later on.
+  IN: PHP array of object of Marker class
+  OUT: JS array of objects suitable for markers values in GMAP3.
+*/
+var markersJSON = '<?php echo json_encode($markers); ?>';
+var crs_markersJS = jQuery.parseJSON(markersJSON);
+console.log('crs_markersJS: ', crs_markersJS);
+//START MAP
 jQuery.noConflict(); jQuery(document).ready(function(){
 
 	<?php if($toggle){ ?>jQuery("#footer").append('<div id="mapTypeContainer"><div id="mapStyleContainer" class="gradientBorder"><div id="mapStyle"></div></div><div id="mapType" class="roadmap"></div></div>');<?php } ?>
 
-	jQuery("#gMap").addClass('activeMap').gmap3({
+	var crs_gMap = jQuery("#gMap"); // create jQ object for the map
+
+	crs_gMap.addClass('activeMap').gmap3({
     	map:{
 	     	center: true,
 			options: {
-				center: [<?php echo $latitude; ?>,<?php echo $longitude; ?>],
+				// center: [<?php echo $latitude; ?>,<?php echo $longitude; ?>],
+				center: crs_markersJS[0].latLng,
 				zoom: <?php echo $zoom;?>,
 				scrollwheel:true,
 				disableDefaultUI:false,
@@ -176,9 +219,32 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 			}
    		},
 		marker:{
-			values: [
-				{latLng:[<?php echo $latitude; ?>,<?php echo $longitude; ?>], data: "Banik Pyco!"}
-			],
+			values: crs_markersJS,
+		    events: {
+		      mouseover: function(marker,event,context){
+		        var $this = jQuery(this);
+		        var map = $this.gmap3("get"),
+		        infowindow = $this.gmap3({get:{name:"infowindow"}});
+		        if (infowindow){
+		            infowindow.open(map, marker);
+		            infowindow.setContent(context.data);
+		        } else {
+		            $this.gmap3({
+		            infowindow:{
+		                    anchor:marker,
+		                    options:{content: context.data}
+		                }
+		            });
+		        }
+		      }, // mouseover end
+		      mouseout: function() {
+		        var infowindow = jQuery(this).gmap3({get:{name:"infowindow"}});
+		        if (infowindow){
+		          infowindow.close();
+		        }
+		              
+		      } //mouseout end
+		    }, // events end
 			options:{
 		   		icon: new google.maps.MarkerImage('<?php echo $pin;?>')
 		 	}
@@ -191,41 +257,79 @@ jQuery.noConflict(); jQuery(document).ready(function(){
    				}
    			}
    		}
+	}); // end gMap.init
+
+	// Get Directions on click #myDirections
+	jQuery(document).on('click', '#myDirections', function(event){
+		event.preventDefault ? event.preventDefault() : event.returnValue = false;
+		console.log(crs_gMap);
+
+		crs_gMap.gmap3({
+			getgeoloc: { // get visitor's latLng
+				callback: function(getLatLng){ // pass visitor's latLng to getroute
+					if (getLatLng) {
+						console.log('getLatLng: ', getLatLng);
+						// use my geolocation (latLng) in getroute
+						jQuery(this).gmap3({
+							getroute: { //get route data
+								options: {
+									origin: getLatLng,
+									destination: crs_markersJS[0].latLng,
+									travelMode: google.maps.DirectionsTravelMode.DRIVING
+								},
+								callback: function(results){ // pass result of route data to renderer
+									console.log('results: ', results );
+									if( !results ) return;
+									jQuery(this).gmap3({ //render route
+										map: {
+											options: {
+												center: getLatLng
+											}
+										},
+										directionsrenderer: {
+											container: jQuery('<div id="directionContainer"></div>').addClass('googlemap').insertAfter('#postAddr'),
+											options: {
+												directions: results
+											}
+										}
+									});
+								}
+							}
+						});
+					}
+				}
+			}
+		});
 	});
 
-		// action: 'addMarker',
-		// lat:<?php echo $latitude; ?>,
-		// lng:<?php echo $longitude; ?>,
-		// marker:{
-		//  		options:{
-		//    		icon: new google.maps.MarkerImage('<?php echo $pin;?>')
-		//  		}
-		// },
-	// {
-	// 	action: 'setOptions', args:[{
-	// 		scrollwheel:true,
-	// 		disableDefaultUI:false,
-	// 		disableDoubleClickZoom:false,
-	// 		draggable:true,
-	// 		mapTypeControl:true,
-	// 		mapTypeId:'satellite',
-	// 		mapTypeControlOptions: {
- //        		position: google.maps.ControlPosition.LEFT_TOP,
- //        		style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
- //    		},
-	// 		panControl:false,
-	// 		scaleControl:false,
-	// 		streetViewControl:true,
-	// 		streetViewControlOptions: {
- //        		position: google.maps.ControlPosition.RIGHT_CENTER
- //    		},
-	// 		zoomControl:true,
-	// 		zoomControlOptions: {
- //        		style: google.maps.ZoomControlStyle.DEFAULT,
- //        		position: google.maps.ControlPosition.RIGHT_CENTER
- //    		}
-	// 	}]
+
+	// $("#test").gmap3({
+	//   getroute:{
+	//     options:{
+	//         origin:"48 Pirrama Road, Pyrmont NSW",
+	//         destination:"Bondi Beach, NSW",
+	//         travelMode: google.maps.DirectionsTravelMode.DRIVING
+	//     },
+	//     callback: function(results){
+	//       if (!results) return;
+	//       $(this).gmap3({
+	//         map:{
+	//           options:{
+	//             zoom: 13,
+	//             center: [-33.879, 151.235]
+	//           }
+	//         },
+	//         directionsrenderer:{
+	//           container: $(document.createElement("div")).addClass("googlemap").insertAfter($("#test")),
+	//           options:{
+	//             directions:results
+	//           }
+	//         }
+	//       });
+	//     }
+	//   }
 	// });
+
 });
 </script>
 <?php } else { ?>

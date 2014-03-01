@@ -194,22 +194,14 @@ jQuery.noConflict(); jQuery(document).ready(function(){
           var $this = jQuery(this);
           jQuery.each( crs_markersJS, function(index, value) {
 
-          //   var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><a class="imgLink" href="'+crs_markersJS[index].tag+'"><img src="'+crs_markersJS[index].options.icon+'" /></a><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2><p>'+crs_markersJS[index].excerpt+'</p><a class="markerLink" href="'+crs_markersJS[index].tag+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+(index+1)+' / <span></span></div><div class="clear"></div></div></div>');
             var jQuerybutton = jQuery('#marker'+index);
-            console.log('#marker:', jQuerybutton);
+            // console.log('#marker:', jQuerybutton);
 
             jQuerybutton.mouseover(function(){
               $this.gmap3("get").panTo(marker[index].position);
               jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
             });
 
-
-
-
-            // jQuery('#markers').append(jQuerybutton);
-
-            // var numbers = jQuery(".markerInfo").length;
-            // jQuery(".markerTotal span").html(numbers);
           });
 
         }   // callback end
