@@ -80,6 +80,27 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 		jQuery(this).find('i').toggleClass('fa-times');
 	});
 
+	////////////////////
+	//CLOSE MAIN DIV
+	////////////////////
+	jQuery("#closeBox").live('click', function(){
+		mainBox.animate({marginTop:"50px"},{duration:600, queue:false});
+		mainBox.fadeOut({duration:400, queue:false});
+		pageBox.stop(true,true).animate({top:"0px"},600);
+		return false;
+	});
+
+	////////////////////
+	//OPEN MAIN DIV
+	////////////////////
+	pageBox.live('click', function(){
+		jQuery(this).stop(true,true).animate({top:"40px"},600);
+		mainBox.fadeIn({duration:400, queue:false});
+		mainBox.animate({marginTop:"0px"},{duration:600, queue:false});
+		return false;
+	});
+
+
 
     ////////////////////
     //WIDGETS TOGGLE
