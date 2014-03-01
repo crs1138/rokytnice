@@ -1,4 +1,4 @@
-/*
+`/*
 Theme Name: Rokytnice Virtu?lne
 Description: Custom theme developed for Rokytnice nad Jizerou.
 Author: tweaked and turned by Barbora Vlas?kov?
@@ -59,7 +59,7 @@ body.page #main {width: 600px;}
 body.page-template-fullwidth-php #main {width: auto;}
 body.iPad #main {padding: 20px;}
 
-#main.blog {width: 600px;}
+/*#main.blog {width: 600px;}*/
 
 #main img {max-width: 100%; height: auto;}
 

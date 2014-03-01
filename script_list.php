@@ -198,23 +198,22 @@
                     var $this = jQuery(this);
                     jQuery.each( crs_markersJS, function(index, value) {
 
-                    // var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><a class="imgLink" href="'+link+'">'+img+'</a><h2><a href="'+link+'">'+title+'</a></h2><p>'+excerpt+'</p><a class="markerLink" href="'+link+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+i+' / <span></span></div><div class="clear"></div></div></div>');
-
-                    // var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2></div></div>');
-                      var jQuerybutton = jQuery('#marker'+index);
+                      var jQuerybutton = jQuery('#marker'+String(index));
                       jQuerybutton.mouseover(function(){
                         $this.gmap3("get").panTo(marker[index].position);
                         jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
                       });
 
+                      var jQueryTitle = jQuery('#title'+String(index)+' a');
+                      console.log('jQueryTitle: ', jQueryTitle);
+                      jQueryTitle.live('mouseover', function(){
+                        console.log('Hollaaaall');
+                        $this.gmap3("get").panTo(marker[index].position);
+                        jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
+                      });
 
-                      // var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2></div></div>');
 
 
-                      // jQuery('#markers').append(jQuerybutton);
-
-                      // var numbers = jQuery(".markerInfo").length;
-                      // jQuery(".markerTotal span").html(numbers);
                     });
 
                   }   // callback end

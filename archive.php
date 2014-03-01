@@ -16,7 +16,9 @@ $bg = get_theme_mod('themolitor_customizer_background_url');
 
 		<h2 class="entrytitle"><?php single_cat_title(); ?></h2>
 		<?php if ($crumbs && function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
-		<div class="entry"><?php echo category_description(); ?></div>
+		<div class="entry">
+			<?php echo category_description(); ?>
+		</div>
 
 	<div class="listing">
 
@@ -39,6 +41,7 @@ $bg = get_theme_mod('themolitor_customizer_background_url');
 	} else { //IF NOT BLOG CATEGORY...
 		if (have_posts()) {
 			get_template_part('navigation');
+			// echo "Heloooooo!" . $blogCat;
 		} else { ?>
 		<h2><?php _e('Not Found','themolitor');?></h2>
 		<p><?php _e('The page you were looking for does not exist.','themolitor');?></p>
