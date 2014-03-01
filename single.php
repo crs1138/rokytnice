@@ -262,13 +262,11 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 	// Get Directions on click #myDirections
 	jQuery(document).on('click', '#myDirections', function(event){
 		event.preventDefault ? event.preventDefault() : event.returnValue = false;
-		console.log(crs_gMap);
 
 		crs_gMap.gmap3({
 			getgeoloc: { // get visitor's latLng
 				callback: function(getLatLng){ // pass visitor's latLng to getroute
 					if (getLatLng) {
-						console.log('getLatLng: ', getLatLng);
 						// use my geolocation (latLng) in getroute
 						jQuery(this).gmap3({
 							getroute: { //get route data
@@ -278,7 +276,6 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 									travelMode: google.maps.DirectionsTravelMode.DRIVING
 								},
 								callback: function(results){ // pass result of route data to renderer
-									console.log('results: ', results );
 									if( !results ) return;
 									jQuery(this).gmap3({ //render route
 										map: {
@@ -302,35 +299,7 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 		});
 	});
 
-
-	// $("#test").gmap3({
-	//   getroute:{
-	//     options:{
-	//         origin:"48 Pirrama Road, Pyrmont NSW",
-	//         destination:"Bondi Beach, NSW",
-	//         travelMode: google.maps.DirectionsTravelMode.DRIVING
-	//     },
-	//     callback: function(results){
-	//       if (!results) return;
-	//       $(this).gmap3({
-	//         map:{
-	//           options:{
-	//             zoom: 13,
-	//             center: [-33.879, 151.235]
-	//           }
-	//         },
-	//         directionsrenderer:{
-	//           container: $(document.createElement("div")).addClass("googlemap").insertAfter($("#test")),
-	//           options:{
-	//             directions:results
-	//           }
-	//         }
-	//       });
-	//     }
-	//   }
-	// });
-
-});
+}); // end document.ready
 </script>
 <?php } else { ?>
 <script>

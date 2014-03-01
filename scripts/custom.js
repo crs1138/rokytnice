@@ -140,28 +140,12 @@ jQuery.noConflict(); jQuery(document).ready(function(){
     		map: {
     			options: {
     				mapTypeId: 'roadmap' //hybrid, satellite, roadmap, terrain
-    				// mapTypeId: new google.maps.mapTypeId.ROADMAP
     			}
     		}
     	});
     	jQuery(this).removeClass('roadmap').addClass('hybrid');
     	jQuery("#mapStyle").toggleClass('hybrid');
     });
-
-    // $(".roadmap").live('click', function(){
-    // 	gMap.gmap3({
-    // 		action: 'setOptions',
-    // 		args: [{mapTypeId: 'roadmap'}]
-    // 	});
-    // 	$(this).removeClass('roadmap').addClass('hybrid');
-    // 	$("#mapStyle").toggleClass('hybrid');
-    // });
-
-    // jQuery(".roadmap").live('click',function(){
-    // 	gMap.gmap3({action: 'setOptions', args:[{mapTypeId:'roadmap'}]}); //hybrid, satellite, roadmap, terrain
-    // 	jQuery(this).removeClass('roadmap').addClass('hybrid');
-    // 	jQuery("#mapStyle").toggleClass('hybrid');
-    // });
 
 	jQuery(".hybrid").live('click', function() {
     	// console.log('crsMap', crsMap);
@@ -176,11 +160,6 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 		jQuery("#mapStyle").toggleClass('roadmap');
 	});
 
-    // jQuery(".hybrid").live('click',function(){
-    // 	gMap.gmap3({action: 'setOptions', args:[{mapTypeId:'hybrid'}]}); //hybrid, satellite, roadmap, terrain
-    // 	jQuery(this).removeClass('hybrid').addClass('roadmap');
-    // 	jQuery("#mapStyle").toggleClass('roadmap');
-    // });
     mapType.live('mouseover', function(){
        jQuery("#mapStyleContainer").stop(true,true).fadeIn(200);
     });
