@@ -37,7 +37,6 @@ $bg = get_theme_mod('themolitor_customizer_background_url');
     				?>
     			</a>
 				<h2 class="blogTitle"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
-    			<p class="blogMeta"><?php _e('Posted','themolitor');?> <?php the_date();?>&nbsp; / &nbsp; <?php _e('By','themolitor');?> <?php the_author();?>&nbsp; / &nbsp;<?php comments_number(__('0 Comments','themolitor'), __('1 Comment','themolitor'), __('% Comments','themolitor')); ?></p>
     			<?php the_excerpt();?>
     			<p class="readMore"><a href="<?php the_permalink();?>"><?php _e('Read More','themolitor');?> &rarr;</a></p>
     			<div class="clear"></div>

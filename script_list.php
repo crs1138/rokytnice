@@ -5,8 +5,10 @@
     public $tag;
     public $latLng = array();
     public $options;
+    public $excerpt;
+    public $addr;
 
-    public function __construct($latitude, $longitude, $title, $permalink, $pin, $excerpt) {
+    public function __construct($latitude, $longitude, $title, $permalink, $pin, $excerpt, $addr) {
       $this->latLng  = array( $latitude, $longitude );
       $this->data = $title;
       $this->tag = $permalink;
@@ -14,6 +16,7 @@
         "icon" => $pin
         );
       $this->excerpt = $excerpt;
+      $this->addr = $addr;
     }
 
     public function get_marker_coords (){
@@ -42,6 +45,11 @@
           $longitude = get_post_meta( $post->ID, 'themolitor_longitude', TRUE );
           $addrOne = get_post_meta( $post->ID, 'themolitor_address_one', TRUE );
           $addrTwo = get_post_meta( $post->ID, 'themolitor_address_two', TRUE );
+          ?>
+
+            console.log('Address: ', '<?php echo $addrOne.$addrTwo; ?>');
+
+          <?php
           $pin = get_post_meta( $post->ID, 'themolitor_pin', TRUE );
 
           //LEGACY SUPPORT
@@ -76,7 +84,7 @@
             $permalink = get_permalink();
             $excerpt = get_the_excerpt();
 
-            $single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin, $excerpt);
+            $single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin, $excerpt, $address);
             $markers[] = $single_marker;
           }
         endwhile; ?>
