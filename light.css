@@ -11,7 +11,7 @@ h1,h2,h3, h4, h5, h6 {color: #000;}
 #loading {background-color: #fafafa;}
 
 #main {
-	border-color:#fff;  
+	border-color:#fff;
 	background: #fff;
 	background: rgba(255,255,255,.95);
 	box-shadow: 0 1px 3px rgba(0,0,0,.2);
@@ -37,7 +37,7 @@ h1,h2,h3, h4, h5, h6 {color: #000;}
 #dropmenu > li > a {color: #aaa;}
 #dropmenu > li > a:hover {color: #000;}
 #dropmenu li ul {
-	background: #fafafa; 
+	background: #fafafa;
 	border-color:#fff;
 }
 #dropmenu li ul:before {display: none;}
@@ -62,7 +62,7 @@ a[rel~="next"],
 .markerNav,
 .pageContent {
 	color: #000;
-	border-color:#eee; 
+	border-color:#eee;
 	background: #fafafa;
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f3f3f3));
 	background: -moz-linear-gradient(top,  #ffffff,  #f3f3f3);
@@ -87,7 +87,7 @@ a[rel~="next"]:hover,
 
 /*---MARKER TITLE POPUP---*/
 .markerTitle {
-	color:#333; 
+	color:#333;
 	border: none;
 	background: #fff;
 	box-shadow: 0 1px 3px rgba(0,0,0,.2);
@@ -113,13 +113,13 @@ a[rel~="next"]:hover,
 .markerInfo {
 	background: #fafafa;
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f3f3f3));
-	background: -moz-linear-gradient(top,  #ffffff,  #f3f3f3); 
-	color: #333; 
+	background: -moz-linear-gradient(top,  #ffffff,  #f3f3f3);
+	color: #333;
 	border-color:#fff;
 	box-shadow: 0px 0px 5px rgba(0,0,0,.15);
 }
 .markerInfo:before {display: none;}
-.markerInfo img {border-color:#fff;}
+/*.markerInfo img {border-color:#fff;}*/
 .markerInfo a:hover img {border-color: #000;}
 
 /*---FOOTER COPYRIGHT---*/
@@ -161,14 +161,14 @@ ul.galleryBox li:hover {border-color: #fff;}
 
 
 /*-------BLOG POST STUFF-------*/
-.blogThumb img {outline: 1px solid #fff;}
-.blogThumb:hover img {outline: 1px solid #fff;}
+/*.blogThumb img {outline: 1px solid #fff;}
+.blogThumb:hover img {outline: 1px solid #fff;}*/
 .blogMeta {border-bottom-color:#555;}
 
 /* ----TOOL TIP STYLE----- */
 .itooltip {
-	color: #333; 
-	background: #fff; 
+	color: #333;
+	background: #fff;
 	border:none;
 }
 
@@ -181,7 +181,7 @@ ul.galleryBox li:hover {border-color: #fff;}
 
 /* -----COMMENT STUFF----- */
 .toggleButton {
-	color: #333; 
+	color: #333;
 	border: 1px solid #fff;
 	background: #eee;
 }
@@ -196,14 +196,14 @@ input[type="email"],
 input[type="text"],
 input[type="password"],
 textarea {
-	background: #e8e8e8; 
-	border: none; 
+	background: #e8e8e8;
+	border: none;
 	color: #333;
 }
 
 #sidebar #searchform {background: #fff;}
 
-#commentform input[type="submit"], 
+#commentform input[type="submit"],
 input[type="submit"] {color: #fff;}
 
 /*-----SUBMISSION FORM STUFF------*/

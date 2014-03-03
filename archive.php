@@ -25,10 +25,18 @@ $bg = get_theme_mod('themolitor_customizer_background_url');
 	<?php
 	if($blogCat && is_category($blogCat) || cat_is_ancestor_of($blogCat, $cat)){  //IF BLOG CATEGORY...
 
-		if (have_posts()) : while (have_posts()) : the_post(); ?>
+		if (have_posts()) : while (have_posts()) : the_post();
+			$post_pin = get_post_meta( $post->ID, 'themolitor_pin', TRUE );
+
+?>
 			<div <?php post_class();?>>
+    			<a class="blogThumb" href="<?php the_permalink();?>"><?php
+    			// the_post_thumbnail('blog');
+    			echo '<img src="' . $post_pin . '" alt="" />';
+
+    				?>
+    			</a>
 				<h2 class="blogTitle"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
-    			<a class="blogThumb" href="<?php the_permalink();?>"><?php the_post_thumbnail('blog');	?></a>
     			<p class="blogMeta"><?php _e('Posted','themolitor');?> <?php the_date();?>&nbsp; / &nbsp; <?php _e('By','themolitor');?> <?php the_author();?>&nbsp; / &nbsp;<?php comments_number(__('0 Comments','themolitor'), __('1 Comment','themolitor'), __('% Comments','themolitor')); ?></p>
     			<?php the_excerpt();?>
     			<p class="readMore"><a href="<?php the_permalink();?>"><?php _e('Read More','themolitor');?> &rarr;</a></p>
@@ -61,7 +69,8 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 	jQuery.backstretch("<?php echo $bg; ?>", {speed: 150});
 });
 </script>
-<?php } else { //IF NOT BLOG CATEGORY...
+	<?php get_template_part('script_list');
+} else { //IF NOT BLOG CATEGORY...
 	get_template_part('script_list');
 }
 
