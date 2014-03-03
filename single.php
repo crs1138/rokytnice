@@ -103,6 +103,9 @@ $sitePin = get_theme_mod('themolitor_customizer_pin');
 			if ($addrOne && $addrTwo) {
 				echo '<p id="postAddr">'.$addrOne.'<br />';
 				echo $addrTwo.'<br /><em><a id="myDirections" title="'. __('Get Directions','themolitor').'" href="#">'. __('Get Directions','themolitor').' &rarr;</a></em></p>';
+			} elseif ($latitude && $longitude) {
+				echo '<br /><em><a id="myDirections" title="'. __('Get Directions','themolitor').'" href="#">'. __('Get Directions','themolitor').' &rarr;</a></em></p>';
+
 			}
 
 			the_content();
