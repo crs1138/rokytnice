@@ -281,7 +281,7 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 								options: {
 									origin: getLatLng,
 									destination: crs_markersJS[0].latLng,
-									travelMode: google.maps.DirectionsTravelMode.WALKING
+									travelMode: google.maps.DirectionsTravelMode.DRIVING
 								},
 								callback: function(results){ // pass result of route data to renderer
 									if( !results ) return;
@@ -292,6 +292,7 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 											}
 										},
 										directionsrenderer: {
+											divId: 'crsdir',
 											container: jQuery('<div id="directionContainer"></div>').addClass('googlemap').insertAfter('#postAddr'),
 											options: {
 												directions: results
