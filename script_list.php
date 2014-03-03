@@ -45,11 +45,6 @@
           $longitude = get_post_meta( $post->ID, 'themolitor_longitude', TRUE );
           $addrOne = get_post_meta( $post->ID, 'themolitor_address_one', TRUE );
           $addrTwo = get_post_meta( $post->ID, 'themolitor_address_two', TRUE );
-          ?>
-
-            console.log('Address: ', '<?php echo $addrOne.$addrTwo; ?>');
-
-          <?php
           $pin = get_post_meta( $post->ID, 'themolitor_pin', TRUE );
 
           //LEGACY SUPPORT
@@ -68,10 +63,14 @@
           if($pin){} elseif($oldPin){$pin = $oldPin;} else {$pin = $sitePin;}
 
           //GET LAT/LONG FROM ADDRESS
+          // if (!$latitude && !$longitude && $addrOne && $addrTwo) {
+            $crs_address = $addrOne.', '.$addrTwo;
+          ?>
+            console.log('Address: ', '<?php echo $crs_address; ?>');
+          <?php
           if (!$latitude && !$longitude && $addrOne && $addrTwo) {
-            $addrOneFix = str_replace(" ", "+", $addrOne);
-            $addrTwoFix = str_replace(" ", "+", $addrTwo);
-            $address = $addrOneFix.'+'.$addrTwoFix;
+
+
             $geocode = file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
             $json = json_decode($geocode);
             $latitude = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
@@ -84,7 +83,7 @@
             $permalink = get_permalink();
             $excerpt = get_the_excerpt();
 
-            $single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin, $excerpt, $address);
+            $single_marker = new Marker ($latitude, $longitude, $title, $permalink, $pin, $excerpt, $crs_address);
             $markers[] = $single_marker;
           }
         endwhile; ?>
@@ -109,7 +108,7 @@
             //Markers Description Init
             jQuery.each( crs_markersJS, function(index, value) {
 
-              var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><a class="imgLink" href="'+crs_markersJS[index].tag+'"><img src="'+crs_markersJS[index].options.icon+'" /></a><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2><p>'+crs_markersJS[index].excerpt+'</p><a class="markerLink" href="'+crs_markersJS[index].tag+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+(index+1)+' / <span></span></div><div class="clear"></div></div></div>');
+              var jQuerybutton = jQuery('<div id="marker'+index+'" class="marker"><div id="markerInfo'+index+'" class="markerInfo"><a class="imgLink" href="'+crs_markersJS[index].tag+'"><img src="'+crs_markersJS[index].options.icon+'" /></a><h2><a href="'+crs_markersJS[index].tag+'">'+crs_markersJS[index].data+'</a></h2><p>'+crs_markersJS[index].addr+'</p><a class="markerLink" href="'+crs_markersJS[index].tag+'"><?php _e('View Details','themolitor');?> &rarr;</a><div class="markerTotal">'+(index+1)+' / <span></span></div><div class="clear"></div></div></div>');
 
               jQuery('#markers').append(jQuerybutton);
               jQuery('#marker0').addClass('activeMarker');
