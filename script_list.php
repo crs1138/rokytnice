@@ -22,8 +22,8 @@
 
   }
 
-    $customList = new WP_Query();
-    $customList->query('showposts=5000');
+    // $customList = new WP_Query();
+    // $customList->query('showposts=5000');
 
     $mainZoom = get_theme_mod('themolitor_customizer_cat_zoom');
     $toggle = get_theme_mod('themolitor_customizer_mapstyle_onoff');

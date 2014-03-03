@@ -20,10 +20,12 @@
 			<?php
 			$crs_index = 0;
 			while (have_posts()) : the_post();
+			$post_pin = get_post_meta( $post->ID, 'themolitor_pin', TRUE );
 			 ?>
 				<div id="post-<?php the_ID(); ?>" class="post">
+					<a class="blogThumb" href="<?php the_permalink();?>"><?php echo '<img src="' . $post_pin . '" alt="" />';
+    					?></a>
 					<h2 id="title<?php echo $crs_index; ?> "class="blogTitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title();?></a></h2>
-	    			<a class="blogThumb" href="<?php the_permalink() ?>"></a>
 
 					<p class="blogMeta"><?php _e('Posted','themolitor');?> <?php the_date();?>&nbsp; / &nbsp; <?php _e('By','themolitor');?> <?php the_author();?>&nbsp; / &nbsp;<?php comments_number(__('0 Comments','themolitor'), __('1 Comment','themolitor'), __('% Comments','themolitor')); ?></p>
 	    			<p><?php the_excerpt(); ?></p>
