@@ -281,7 +281,7 @@ jQuery.noConflict(); jQuery(document).ready(function(){
 								options: {
 									origin: getLatLng,
 									destination: crs_markersJS[0].latLng,
-									travelMode: google.maps.DirectionsTravelMode.DRIVING
+									travelMode: google.maps.DirectionsTravelMode.WALKING
 								},
 								callback: function(results){ // pass result of route data to renderer
 									if( !results ) return;
