@@ -54,7 +54,7 @@ function attachment_toolbox($size = thumbnail) {
 			echo '<p><strong>Image link to attachment page</strong><br /><a href="'.$attlink.'">'.$attimg.'</a></p>';
 			echo '<p><strong>Image link to attachment post</strong><br /><a href="'.$postlink.'">'.$attimg.'</a></p>';
 			echo '<p><strong>Image link to attachment file</strong><br /><a href="'.$atturl.'">'.$attimg.'</a></p>';
-			*/ 
+			*/
 			echo'<li class="wrapperli"><a title="'.$atttitle.'" href="'.$atturl.'">'.$attimg.'</a></li>';
 		}
 	}
