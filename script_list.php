@@ -65,9 +65,6 @@
           //GET LAT/LONG FROM ADDRESS
           // if (!$latitude && !$longitude && $addrOne && $addrTwo) {
             $crs_address = $addrOne.', '.$addrTwo;
-          ?>
-            console.log('Address: ', '<?php echo $crs_address; ?>');
-          <?php
           if (!$latitude && !$longitude && $addrOne && $addrTwo) {
 
 
@@ -94,7 +91,7 @@
   ?>
   var markersJSON = '<?php echo json_encode($markers); ?>';
   var crs_markersJS = jQuery.parseJSON(markersJSON);
-  console.log('crs_markersJS: ', crs_markersJS);
+  // console.log('crs_markersJS: ', crs_markersJS);
 
 
           jQuery.noConflict(); jQuery(document).ready(function(){

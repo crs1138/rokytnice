@@ -11,7 +11,7 @@ Tags: travelling at light speed theme
 
 /* -----BODY STUFF----- */
 html { background-color: #222;}
-body {height:auto; width:auto; font-family:Sans-Serif; color:#eee;}
+body {height:auto; width:auto; font-family:Sans-Serif; color:#eee; margin:0;}
 
 /*---LIGHTBOX STYLE---*/
 .pp_nav p {color: #333; width: 100px;}

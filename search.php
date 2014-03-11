@@ -6,8 +6,13 @@
 <div id="main">
 	<div id="handle"></div>
 	<div id="closeBox"></div>
-
-	<?php if (have_posts()) : ?>
+	<?php
+	if(is_search()){
+	  $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+	  $s = get_query_var('s');
+	  query_posts('s='.$s.'&paged='.$page);
+	}
+	if (have_posts()) : ?>
 
 	<h2 class="entrytitle"><?php _e('Search Results','themolitor');?></h2>
 	<div class="clear"></div>
@@ -18,8 +23,15 @@
 
 			<?php
 			$crs_index = 0;
+			$sitePin = get_theme_mod('themolitor_customizer_pin');
+
 			while (have_posts()) : the_post();
 			$post_pin = get_post_meta( $post->ID, 'themolitor_pin', TRUE );
+			// OLD LEGACY SUPPORT
+			$data = get_post_meta( $post->ID, 'key', true );
+			$oldPin = $data['pin'];
+
+			if($post_pin){} elseif($oldPin){$post_pin = $oldPin;} else {$post_pin = $sitePin;}
 			 ?>
 				<div id="post-<?php the_ID(); ?>" class="post">
 					<a class="blogThumb" href="<?php the_permalink();?>"><?php echo '<img src="' . $post_pin . '" alt="" />';
