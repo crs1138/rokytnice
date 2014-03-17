@@ -191,9 +191,9 @@
                             
                     }, //mouseout end
                     click: function(marker, event, context){
-                      console.log('marker: ', marker);
-                      console.log('event: ', context);
-                      console.log('context: ', context);
+                      // console.log('marker: ', marker);
+                      // console.log('event: ', context);
+                      // console.log('context: ', context);
                       window.location = context.tag;
 
                     } //click end
@@ -209,9 +209,9 @@
                       });
 
                       var jQueryTitle = jQuery('#title'+String(index)+' a');
-                      console.log('jQueryTitle: ', jQueryTitle);
+                      // console.log('jQueryTitle: ', jQueryTitle);
                       jQueryTitle.live('mouseover', function(){
-                        console.log('Hollaaaall');
+                        // console.log('Hollaaaall');
                         $this.gmap3("get").panTo(marker[index].position);
                         jQuery("#target").stop(true,true).fadeIn(500).delay(500).fadeOut(500);
                       });

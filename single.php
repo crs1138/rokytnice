@@ -187,7 +187,7 @@ $sitePin = get_theme_mod('themolitor_customizer_pin');
 */
 var markersJSON = '<?php echo json_encode($markers); ?>';
 var crs_markersJS = jQuery.parseJSON(markersJSON);
-console.log('crs_markersJS: ', crs_markersJS);
+// console.log('crs_markersJS: ', crs_markersJS);
 //START MAP
 jQuery.noConflict(); jQuery(document).ready(function(){
 
@@ -266,7 +266,7 @@ jQuery.noConflict(); jQuery(document).ready(function(){
    			}
    		}
 	}); // end gMap.init
-	console.log('crs_markersJS[0].kml: ', crs_markersJS[0].kml );
+	// console.log('crs_markersJS[0].kml: ', crs_markersJS[0].kml );
 	// Get Directions on click #myDirections
 	jQuery(document).on('click', '#myDirections', function(event){
 		event.preventDefault ? event.preventDefault() : event.returnValue = false;

@@ -140,8 +140,8 @@ jQuery.noConflict(); jQuery(document).ready(function(){
             }
         },
         callback: function(map){
-          console.log('Map init:', map);
-          console.log('MarkersJS:', crs_markersJS);
+          // console.log('Map init:', map);
+          // console.log('MarkersJS:', crs_markersJS);
 
 
         },   // callback end
@@ -184,9 +184,9 @@ jQuery.noConflict(); jQuery(document).ready(function(){
                   
           }, //mouseout end
           click: function(marker, event, context){
-            console.log('marker: ', marker);
-            console.log('event: ', context);
-            console.log('context: ', context);
+            // console.log('marker: ', marker);
+            // console.log('event: ', context);
+            // console.log('context: ', context);
             window.location = context.tag;
           } //click end
         }, // events end
